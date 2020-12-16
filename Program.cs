@@ -76,7 +76,7 @@ namespace POO_LISTADEOBJETOS_EX1
 
             if(resposta3 == "sim" || resposta3 == "Sim" || resposta3 == "s"){
 
-                System.Console.WriteLine("Desja excluir qual item? Digite o índice de array");
+                System.Console.WriteLine("Desja excluir qual item? Digite o índice iniciando de 0");
                 int excluir = int.Parse(Console.ReadLine());
                 produtos.RemoveAt(excluir); //Entre os parenteses é o indice do array]
 
