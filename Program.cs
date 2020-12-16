@@ -90,12 +90,64 @@ namespace POO_LISTADEOBJETOS_EX1
                     Console.ResetColor();
                     System.Console.WriteLine("-------------------------------------------------");
                 }
-
             }
-           
+
             //Remover atráves de expressões
             //produtos.RemoveAll(x => x.Nome == "Zenfone Asus");
 
+            List<Cartao> cartao = new List<Cartao>();
+
+            Console.WriteLine("Gostaria de adicionar um cartão como forma de pagamento?");
+            string resposta4 = Console.ReadLine();
+
+             if(resposta4 == "sim" || resposta4 == "Sim" || resposta4 == "s")
+            {
+                System.Console.WriteLine("Digite o titular do cartão: ");
+                string titular = Console.ReadLine();
+
+                System.Console.WriteLine("Digite o número do cartão: ");
+                int numero = int.Parse(Console.ReadLine());
+
+                System.Console.WriteLine("Qual a bandeira do cartão? ");
+                string bandeira = Console.ReadLine();
+
+                System.Console.WriteLine("Digite o vencimento do cartão: ");
+                string dataVencimento = Console.ReadLine();
+
+                System.Console.WriteLine("Digite o código de segurança (CVV) do cartão: ");
+                int cvv = int.Parse(Console.ReadLine());
+                
+                cartao.Add(new Cartao(titular,numero,bandeira,dataVencimento,cvv));  
+
+            } else {
+                Console.Clear();
+            }
+           
+            System.Console.WriteLine("Deseja ver as informações dos cartões cadastrados?");
+            string resposta5 = Console.ReadLine();
+
+            if(resposta5 == "sim" || resposta5 == "Sim" || resposta5 == "s")
+            {
+                Console.Clear();
+
+                foreach(Cartao item in cartao){
+
+                    Console.ForegroundColor = ConsoleColor.Yellow;    
+                    Console.WriteLine($"Titular: {item.Titular} ");
+
+                    Console.WriteLine($"Número do cartão: {item.Numero} ");
+
+                    Console.WriteLine($"Bandeira do cartão: {item.Bandeira} ");
+
+                    Console.WriteLine($"Data de vencimento:  {item.Vencimento} ");
+
+                    Console.WriteLine($"Código de segurança: {item.Cvv} ");
+                    Console.ResetColor();
+
+                }
+            } else {
+                Console.Clear();
+            }
            
 
 
