@@ -13,11 +13,12 @@ namespace POO_LISTADEOBJETOS_EX1
 
 
             //Adicionar produtos à lista
-            produtos.Add(new Produto(1,"Apple Watch" , 2547.4f));
-            produtos.Add(new Produto(2,"Xiaomi Redmi note 9s" , 1847.4f));
-            produtos.Add(new Produto(3,"Zenfone Asus" , 2247.6f));
-            produtos.Add(new Produto(4,"Iphone 11" , 4558.4f));
-            produtos.Add(new Produto(5,"Motorola G8" , 2737.8f));
+
+            // produtos.Add(new Produto(1,"Apple Watch" , 2547.4f));
+            // produtos.Add(new Produto(2,"Xiaomi Redmi note 9s" , 1847.4f));
+            // produtos.Add(new Produto(3,"Zenfone Asus" , 2247.6f));
+            // produtos.Add(new Produto(4,"Iphone 11" , 4558.4f));
+            // produtos.Add(new Produto(5,"Motorola G8" , 2737.8f));
 
             //Adicionar produtos de forma mais básica
             // Produto samsung = new Produto();
@@ -28,6 +29,9 @@ namespace POO_LISTADEOBJETOS_EX1
             // produtos.Add(samsung);
 
             // ou 
+            System.Console.WriteLine("Deseja adicionar quantos produtos?");
+            int resposta = int.Parse(Console.ReadLine());
+
             int i = 0;
             do{
                 Console.WriteLine("Digite o nome do produto: ");
@@ -44,43 +48,55 @@ namespace POO_LISTADEOBJETOS_EX1
 
                 i++;
 
-            }while(i < 3);
+            }while(i < resposta);
             
             Console.Clear();
 
             //Mostrar produtos com foreach
-            foreach (Produto p in produtos){
+
+            Console.WriteLine("Deseja ver os produtos cadastrados?");
+            string resposta2 = Console.ReadLine();
+
+            if(resposta2 == "sim" || resposta2 == "Sim" || resposta2 == "s")
+            {
+                foreach (Produto p in produtos){
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"{p.Nome} - R$ {p.Preco}");
                 Console.ResetColor();
             }
+            } else {
+                Console.Clear();
+            }
+            
 
             //Remover produtos da lista
             System.Console.WriteLine("-----------------------------------------------------");
             System.Console.WriteLine("Deseja excluir algum item? ");
-            string resposta = Console.ReadLine();
+            string resposta3 = Console.ReadLine();
 
-            if(resposta == "sim" || resposta == "Sim" || resposta == "s"){
+            if(resposta3 == "sim" || resposta3 == "Sim" || resposta3 == "s"){
 
                 System.Console.WriteLine("Desja excluir qual item? Digite o índice de array");
                 int excluir = int.Parse(Console.ReadLine());
                 produtos.RemoveAt(excluir); //Entre os parenteses é o indice do array]
+
+
+                 Console.WriteLine("Lista alterada: ");
+
+                 foreach(Produto p in produtos){
+                    System.Console.WriteLine("-------------------------------------------------");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"{p.Nome} - R$ {p.Preco}");
+                    Console.ResetColor();
+                    System.Console.WriteLine("-------------------------------------------------");
+                }
 
             }
            
             //Remover atráves de expressões
             //produtos.RemoveAll(x => x.Nome == "Zenfone Asus");
 
-            Console.WriteLine("Lista alterada: ");
-
-            foreach(Produto p in produtos){
-                System.Console.WriteLine("-------------------------------------------------");
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"{p.Nome} - R$ {p.Preco}");
-                Console.ResetColor();
-                System.Console.WriteLine("-------------------------------------------------");
-            }
-
+           
 
 
         }
